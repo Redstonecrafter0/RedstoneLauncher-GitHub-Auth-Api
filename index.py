@@ -1,6 +1,6 @@
 import os
 import requests
-from flask import Flask, request
+from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
@@ -17,4 +17,7 @@ def apiAuth():
         }, headers={
             'Accept': 'application/json'
         })
-        return response.text, 200
+        return jsonify({
+            'data': response.json(),
+            'status': response.status_code
+        }), 200
