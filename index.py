@@ -17,4 +17,4 @@ def apiAuth():
         }, headers={
             'Accept': 'application/json'
         })
-        return response.text, response.status_code
+        return response.text, 200
